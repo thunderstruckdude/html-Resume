@@ -4,136 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* General Reset */
-    body {
-      margin: 0;
-      font-family: 'Fira Code', monospace;
-      background: #0f0f0f;
-      color: #e0e0e0;
-      line-height: 1.8;
-      scroll-behavior: smooth;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header {
-      background: linear-gradient(90deg, #3a1c71, #d76d77, #ffaf7b);
-      color: #fff;
-      width: 100%;
-      text-align: center;
-      padding: 30px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-      animation: fadeIn 2s;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 1.2rem;
-      animation: fadeIn 3s;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      padding: 40px;
-      width: 100%;
-      max-width: 1400px;
-    }
-
-    section {
-      padding: 30px;
-      background: #1a1a1a;
-      border-radius: 16px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    section:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    }
-
-    section h2 {
-      color: #ffaf7b;
-      border-bottom: 2px solid #d76d77;
-      padding-bottom: 8px;
-      margin-bottom: 15px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin: 15px 0;
-      padding-left: 25px;
-      position: relative;
-    }
-
-    ul li:before {
-      content: "\f0d8"; /* Nerd Font character */
-      font-family: "Nerd Font";
-      color: #d76d77;
-      font-size: 1.4rem;
-      position: absolute;
-      left: 0;
-    }
-
-    .projects {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      background: #252525;
-      padding: 20px;
-      border-radius: 16px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    }
-
-    .project-card img {
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #3a1c71;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      text-align: center;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #d76d77;
-    }
-
-    @keyframes fadeIn {
+    @keyframes fade-in {
       from {
         opacity: 0;
       }
@@ -141,97 +14,110 @@
         opacity: 1;
       }
     }
-
-    footer {
-      width: 100%;
-      text-align: center;
-      padding: 30px;
-      margin-top: 30px;
-      background: #1a1a1a;
-      border-top: 2px solid #d76d77;
+    .animate-fade-in {
+      animation: fade-in 2s ease-in;
+    }
+    .animate-fade-in-delay {
+      animation: fade-in 2s ease-in 0.5s;
     }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@latest/webfonts.css">
 </head>
-<body>
-  <header>
-    <h1>Maneek V R</h1>
-    <p>Computer Science and Engineering Student | Cybersecurity Enthusiast</p>
+<body class="bg-gray-900 text-gray-200 font-mono">
+  <header class="bg-gradient-to-r from-purple-800 via-pink-600 to-orange-400 text-white py-6 sticky top-0 z-50 shadow-md text-center">
+    <h1 class="text-4xl font-bold animate-fade-in">Your Name</h1>
+    <p class="text-lg mt-2 animate-fade-in-delay">Computer Science and Engineering Student | Cybersecurity Enthusiast</p>
   </header>
 
-  <main>
-    <section id="objective">
-      <h2>Objective</h2>
-      <p>A highly motivated first-year Computer Science and Engineering student specializing in cybersecurity and malware analysis. Passionate about systems-level programming, ethical hacking, and full-stack development, with a strong foundation in C programming and a growing expertise in Windows API, Linux systems, and custom OS configurations.</p>
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 max-w-6xl mx-auto">
+    <section class="bg-gray-800 text-gray-200 rounded-xl shadow-lg p-6 transition-transform transform hover:scale-105">
+      <h2 class="text-2xl font-semibold text-orange-300 border-b border-orange-400 pb-2 mb-4">Objective</h2>
+      <p>
+        A highly motivated first-year Computer Science and Engineering student specializing in cybersecurity and malware analysis. Passionate about systems-level programming, ethical hacking, and full-stack development.
+      </p>
     </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
+    <section class="bg-gray-800 text-gray-200 rounded-xl shadow-lg p-6 transition-transform transform hover:scale-105">
+      <h2 class="text-2xl font-semibold text-orange-300 border-b border-orange-400 pb-2 mb-4">Education</h2>
+      <ul class="list-disc list-inside space-y-2">
         <li>Bachelor of Technology in Computer Science and Engineering (Specialization: Cybersecurity & Malware Analysis)</li>
-        <li>SRM University AP, Guntur</li>
-        <li>Expected Graduation Year: 2028</li>
+        <li>[Your University], [Your City]</li>
+        <li>Expected Graduation Year: YYYY</li>
       </ul>
     </section>
 
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <ul>
+    <section class="bg-gray-800 text-gray-200 rounded-xl shadow-lg p-6 transition-transform transform hover:scale-105">
+      <h2 class="text-2xl font-semibold text-orange-300 border-b border-orange-400 pb-2 mb-4">Technical Skills</h2>
+      <ul class="list-disc list-inside space-y-2">
         <li><strong>Programming Languages:</strong> C, JavaScript, Node.js</li>
         <li><strong>Web Development:</strong> React, Next.js, MySQL, Convex, Clerk</li>
-        <li><strong>Operating Systems:</strong> Proficient in Linux (Arch), Windows programming with c</li>
+        <li><strong>Operating Systems:</strong> Proficient in Linux (Archcraft), Windows</li>
         <li><strong>System Programming:</strong> Windows API, Linux CLI tools</li>
         <li><strong>Cybersecurity:</strong> Ethical hacking, keylogger design, reverse engineering (in progress)</li>
         <li><strong>Development Tools:</strong> MongoDB, Git, Hyprland (Linux window manager)</li>
       </ul>
     </section>
 
-    <section id="career-goals">
-      <h2>Career Goals</h2>
-      <p>Master systems-level programming and cybersecurity practices. Explore advanced projects in reverse engineering and malware analysis. Build open-source tools for Linux and contribute to the developer community.</p>
+    <section class="bg-gray-800 text-gray-200 rounded-xl shadow-lg p-6 transition-transform transform hover:scale-105">
+      <h2 class="text-2xl font-semibold text-orange-300 border-b border-orange-400 pb-2 mb-4">Career Goals</h2>
+      <p>
+        Master systems-level programming and cybersecurity practices. Explore advanced projects in reverse engineering and malware analysis. Build open-source tools for Linux and contribute to the developer community.
+      </p>
     </section>
 
-    <section id="interests">
-      <h2>Interests</h2>
-      <ul>
+    <section class="bg-gray-800 text-gray-200 rounded-xl shadow-lg p-6 transition-transform transform hover:scale-105">
+      <h2 class="text-2xl font-semibold text-orange-300 border-b border-orange-400 pb-2 mb-4">Interests</h2>
+      <ul class="list-disc list-inside space-y-2">
         <li>Operating system customization and window manager development</li>
         <li>Ethical hacking and network security</li>
         <li>Full-stack development with a focus on scalable applications</li>
       </ul>
     </section>
 
-    <section id="projects" class="projects">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <img src="fiverr-clone.png" alt="Fiverr Clone">
-        <h3>Fiverr Clone</h3>
-        <p>Built a web application replicating Fiverr’s functionality using Next.js, Convex, and Clerk.</p>
-      </div>
-      <div class="project-card">
-        <img src="suggestion-box.png" alt="Digital Suggestion Box">
-        <h3>Digital Suggestion Box</h3>
-        <p>AI-assisted platform using React, Node.js, and MySQL to sort and filter campus suggestions.</p>
-      </div>
-      <div class="project-card">
-        <img src="keylogger.png" alt="Keylogger">
-        <h3>Keylogger</h3>
-        <p>Designed a keylogger with a Node.js server backend and an engaging front-end interface.</p>
-      </div>
-      <div class="project-card">
-        <img src="archcraft.png" alt="Archcraft Customization">
-        <h3>Archcraft Linux Customization</h3>
-        <p>Configured Archcraft with Hyprland and personalized dotfiles for optimized workflow.</p>
-      </div>
-      <div class="project-card">
-        <img src="secure-transfer.png" alt="Secure File Transfer">
-        <h3>Secure File Transfer System</h3>
-        <p>Leveraged MongoDB for backend development with a focus on secure file transfer protocols.</p>
+    <section class="bg-gray-800 text-gray-200 rounded-xl shadow-lg p-6 md:col-span-2">
+      <h2 class="text-2xl font-semibold text-orange-300 border-b border-orange-400 pb-2 mb-4">Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+          <img src="fiverr-clone.png" alt="Fiverr Clone" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-orange-400">Fiverr Clone</h3>
+            <p>Built a web application replicating Fiverr’s functionality using Next.js, Convex, and Clerk.</p>
+          </div>
+        </div>
+        <div class="bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+          <img src="suggestion-box.png" alt="Digital Suggestion Box" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-orange-400">Digital Suggestion Box</h3>
+            <p>AI-assisted platform using React, Node.js, and MySQL to sort and filter campus suggestions.</p>
+          </div>
+        </div>
+        <div class="bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+          <img src="keylogger.png" alt="Keylogger" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-orange-400">Keylogger</h3>
+            <p>Designed a keylogger with a Node.js server backend and an engaging front-end interface.</p>
+          </div>
+        </div>
+        <div class="bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+          <img src="archcraft.png" alt="Archcraft Customization" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-orange-400">Archcraft Linux Customization</h3>
+            <p>Configured Archcraft with Hyprland and personalized dotfiles for optimized workflow.</p>
+          </div>
+        </div>
+        <div class="bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+          <img src="secure-transfer.png" alt="Secure File Transfer" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-bold text-orange-400">Secure File Transfer System</h3>
+            <p>Leveraged MongoDB for backend development with a focus on secure file transfer protocols.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; [2024] thunderstruckdude. All Rights Reserved.</p>
+  <footer class="text-center py-6 mt-8 bg-gray-800 border-t border-orange-400">
+    <p>&copy; [Year] Your Name. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
+
