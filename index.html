@@ -3,67 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume</title>
+  <title>Resume - Maneek</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-image:url('jpg');
-      background-attachment: fixed;
-      background-size: cover;
-      background-repeat: no-repeat;
+      background: linear-gradient(135deg, #2b2d42, #8d99ae);
       font-family: 'Fira Code', monospace;
-      color: rgb(105, 84, 87); /* Soft Rose */
+      color: #edf2f4;
       line-height: 1.6;
+      margin: 0;
       scroll-behavior: smooth;
     }
 
     header {
-      background: rgba(25, 5, 6, 0.8); /* Deep Maroon with transparency */
-      color: rgb(184, 151, 155); /* Soft Rose */
+      background: rgba(21, 32, 43, 0.9);
+      color: #edf2f4;
       text-align: center;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px 10px;
       position: sticky;
       top: 0;
       z-index: 10;
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     header:hover {
-      background: rgba(40, 10, 12, 0.9);
+      background: rgba(31, 42, 54, 0.95);
     }
 
     header h1 {
       font-size: 2.5rem;
-      transition: transform 0.3s ease;
+      letter-spacing: 2px;
+      margin: 0;
     }
 
-    header h1:hover {
-      transform: scale(1.1);
+    header p {
+      font-size: 1rem;
+      margin-top: 5px;
+      color: #adb5bd;
     }
 
     main {
-      margin: 20px;
       padding: 20px;
-      background: rgba(52, 11, 14, 0.8); /* Muted Burgundy with transparency */
+      max-width: 900px;
+      margin: 20px auto;
+      background: rgba(31, 42, 54, 0.85);
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     section {
       margin-bottom: 20px;
-      background: rgba(74, 10, 13, 0.9); /* Deep Burgundy */
       padding: 20px;
+      background: rgba(45, 55, 72, 0.95);
       border-radius: 12px;
-      color: rgb(184, 151, 155); /* Soft Rose */
-      position: relative;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     section h2 {
-      border-bottom: 2px solid rgb(11, 1, 1); /* Rich Crimson */
+      font-size: 1.5rem;
+      border-bottom: 2px solid #adb5bd;
       padding-bottom: 5px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       position: relative;
+      text-transform: uppercase;
     }
 
     section h2::after {
@@ -73,64 +75,95 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: rgb(184, 151, 155);
-      transition: width 0.3s ease;
+      background: #edf2f4;
+      transition: width 0.3s ease-in-out;
     }
 
     section h2:hover::after {
       width: 100%;
     }
 
+    ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
     ul li {
       margin: 10px 0;
-      color: rgb(161, 121, 125); /* Muted Pink */
+      display: flex;
+      align-items: center;
       position: relative;
-      padding-left: 25px;
     }
 
     ul li::before {
-      content: "\2022"; /* Bullet point */
-      color: rgb(19, 3, 4); /* Rich Crimson */
-      position: absolute;
-      left: 0;
-      transition: transform 0.3s ease;
-    }
-
-    ul li:hover::before {
-      transform: scale(1.5);
+      content: "●";
+      margin-right: 10px;
+      font-size: 1.2rem;
+      color: #ef233c;
     }
 
     .project-card {
-      background: rgba(72, 35, 49, 0.9); /* Dark Plum */
-      padding: 15px;
+      display: flex;
+      align-items: flex-start;
+      background: rgba(40, 50, 65, 0.9);
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      color: rgb(184, 151, 155); /* Soft Rose */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .project-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-card img {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      margin: 0;
     }
 
     footer {
+      background: rgba(31, 42, 54, 0.95);
+      color: #adb5bd;
       text-align: center;
       padding: 20px;
-      background: rgba(73, 26, 39, 0.8); /* Deep Maroon */
-      color: rgb(184, 151, 155); /* Soft Rose */
-      border-top: 2px solid rgb(121, 10, 45); /* Rich Crimson */
-      position: relative;
-      overflow: hidden;
+      border-top: 2px solid #ef233c;
     }
 
     footer p {
       margin: 0;
-      transition: transform 0.3s ease;
+      font-size: 0.9rem;
     }
 
-    footer:hover p {
-      transform: scale(1.1);
+    @media (max-width: 768px) {
+      main {
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section h2 {
+        font-size: 1.2rem;
+      }
+
+      .project-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .project-card img {
+        margin: 0 0 10px 0;
+      }
     }
   </style>
 </head>
@@ -143,7 +176,7 @@
   <main>
     <section id="Statement">
       <h2>Objective</h2>
-      <p>A highly motivated first-year Computer Science and Engineering student specializing in cybersecurity and malware analysis. Passionate about systems-level programming, ethical hacking, and full-stack development, with a strong foundation in C programming and a growing expertise in Windows API, Linux systems, and custom OS configurations.</p>
+      <p>A highly motivated first-year Computer Science and Engineering student specializing in cybersecurity and malware analysis...</p>
     </section>
 
     <section id="education">
@@ -159,53 +192,32 @@
       <h2>Technical Skills</h2>
       <ul>
         <li><strong>Programming Languages:</strong> C, JavaScript, Python</li>
-        <li><strong>Web Development:</strong> React, Next.js, MongoDB, Convex, Clerk, Stripe</li>
-        <li><strong>Operating Systems:</strong> archlinux, Windows</li>
-        <li><strong>System Programming:</strong> Windows API, Linux CLI tools</li>
-        <li><strong>Cybersecurity:</strong> Spyware design and analysis, reverse engineering (in progress)</li>
-        <li><strong>Development Tools:</strong> MERN stack, Code OSS, zshell,</li>
+        <li><strong>Web Development:</strong> React, Next.js...</li>
+        <li><strong>Operating Systems:</strong> Arch Linux...</li>
       </ul>
     </section>
 
-    <section id="career-goals">
-      <h2>Career Goals</h2>
-      <p>Become a cybersecurity professional</p>
-      <p>Work on hardware-level optimizations for deep learning models</p>
-      <p>Build open-source tools for Linux and contribute to the developer community.</p>
-    </section>
-
-    <section id="interests">
-      <h2>Interests</h2>
-      <ul>
-        <li>Operating system customizations</li>
-        <li>Ethical hacking and network security</li>
-        <li>Deep Learning utility tools</li>
-        <li>Computational Natural Sciences</li>
-      </ul>
-    </section>
-
-    <section id="projects" class="projects">
+    <section id="projects">
       <h2>Projects</h2>
       <div class="project-card">
         <img src="keylogger.jpg" alt="Keylogger">
-        <h3>Keylogger</h3>
-        <p>Designed a keylogger with a Node.js server backend and an engaging front-end interface.</p>
+        <div>
+          <h3>Keylogger</h3>
+          <p>Designed a keylogger with a Node.js backend...</p>
+        </div>
       </div>
       <div class="project-card">
         <img src="linux.jpg" alt="Archcraft Customization">
-        <h3>Archcraft Linux Customization</h3>
-        <p>Configured Archcraft with Hyprland and personalized dotfiles for optimized workflow.</p>
-      </div>
-      <div class="project-card">
-        <img src="File Transfer.gif" alt="Secure File Transfer">
-        <h3>Secure File Transfer System</h3>
-        <p>Leveraged MongoDB for backend development with a focus on secure file transfer protocols.</p>
+        <div>
+          <h3>Archcraft Linux Customization</h3>
+          <p>Configured Archcraft with Hyprland...</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; [2025] @maneekblaze. All Rights Reserved. github:@thunderstruckdude</p>
+    <p>&copy; 2025 @maneekblaze. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
